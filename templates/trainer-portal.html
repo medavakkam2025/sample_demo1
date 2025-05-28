@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trainer Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0ffe0 0%, #e0f7ef 100%);
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 2rem 4vw 1rem 4vw;
+      gap: 1rem;
+    }
+    .back-btn {
+      background: #fff;
+      border: 2px solid #1abc60;
+      color: #1abc60;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #1abc60;
+      color: #fff;
+    }
+    .trainer-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-left: 1.5rem;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2vw;
+    }
+    .trainer-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      text-align: center;
+      border: 1.5px solid #e3eafc;
+      transition: box-shadow 0.15s, border 0.15s;
+    }
+    .trainer-card:hover {
+      box-shadow: 0 8px 32px rgba(60, 120, 200, 0.18);
+      border-color: #b6c7e3;
+    }
+    .trainer-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #1abc60;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
+      font-size: 2.2rem;
+      color: #fff;
+    }
+    .trainer-card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+    }
+    .trainer-card-desc {
+      color: #4a6fa1;
+      font-size: 1rem;
+    }
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="dashboard.html" class="back-btn">&#8592; Back to Home</a>
+    <span class="trainer-title">Trainer Portal</span>
+  </div>
+  <div class="cards-grid">
+    <div class="trainer-card">
+      <div class="trainer-icon">&#128218;</div>
+      <div class="trainer-card-title">Course Management</div>
+      <div class="trainer-card-desc">Create and manage training courses and curricula</div>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-icon">&#128101;</div>
+      <div class="trainer-card-title">Student Management</div>
+      <div class="trainer-card-desc">Track student progress and attendance</div>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-icon">&#128197;</div>
+      <div class="trainer-card-title">Schedule Management</div>
+      <div class="trainer-card-desc">Manage class schedules and training sessions</div>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-icon">&#128200;</div>
+      <div class="trainer-card-title">Progress Tracking</div>
+      <div class="trainer-card-desc">Monitor student performance and completion rates</div>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-icon">&#128196;</div>
+      <div class="trainer-card-title">Resources</div>
+      <div class="trainer-card-desc">Access training materials and resources</div>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-icon">&#9881;</div>
+      <div class="trainer-card-title">Settings</div>
+      <div class="trainer-card-desc">Trainer profile and preferences</div>
+    </div>
+  </div>
+</body>
+</html>

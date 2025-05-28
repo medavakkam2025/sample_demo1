@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post a Job</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .job-form {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+    .job-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .job-form input, .job-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .job-form button {
+      background: #3498db;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .job-form button:hover {
+      background: #2980b9;
+    }
+    .flash-message {
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <form class="job-form" method="POST">
+    <h2>Post a Job</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-message">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <input type="text" name="title" placeholder="Job Title" required>
+    <input type="text" name="company" placeholder="Company Name" required>
+    <input type="text" name="location" placeholder="Job Location" required>
+    <input type="text" name="salary" placeholder="Salary" required>
+    <textarea name="description" placeholder="Job Description" rows="5" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

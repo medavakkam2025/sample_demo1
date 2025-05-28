@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Magic Bus Foundation Management Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 4vw 1rem 4vw;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header-logo {
+      width: 56px;
+      height: 56px;
+      background: #1976d2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+    .header-title {
+      color: #1976d2;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .header-subtitle {
+      color: #4a6fa1;
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+      font-weight: 500;
+    }
+    .logout-btn {
+      background: #fff;
+      border: 2px solid #1976d2;
+      color: #1976d2;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .logout-btn:hover {
+      background: #1976d2;
+      color: #fff;
+    }
+    .cards-row {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2rem 0 2.5rem 0;
+      flex-wrap: wrap;
+    }
+    .role-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(60, 120, 200, 0.10);
+      padding: 2.2rem 2rem 1.5rem 2rem;
+      width: 270px;
+      text-align: center;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border: 1.5px solid #e3eafc;
+    }
+    .role-card:hover {
+      transform: translateY(-7px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(60, 120, 200, 0.18);
+      border-color: #b6c7e3;
+    }
+    .role-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
+      font-size: 2.5rem;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(60, 120, 200, 0.10);
+    }
+    .role-program { background: #2986f5; }
+    .role-trainer { background: #1abc60; }
+    .role-placement { background: #a259f7; }
+    .role-mobilizer { background: #ff7a1a; }
+    .role-title {
+      color: #1a237e;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .role-desc {
+      color: #4a6fa1;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    .about-section {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      margin: 0 auto 2rem auto;
+      max-width: 900px;
+      padding: 2rem 2.5rem;
+      text-align: center;
+    }
+    .about-title {
+      color: #1976d2;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .about-desc {
+      color: #1a237e;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    @media (max-width: 1100px) {
+      .cards-row { flex-direction: column; align-items: center; gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .about-section { padding: 1.2rem 0.7rem; }
+      .cards-row { gap: 1rem; }
+      .role-card { width: 95vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container ">
+    <div class="header">
+    <div class="header-left">
+      <div class="header-logo">★</div>
+      <div>
+        <div class="header-title">NGO Management Portal</div>
+        <div class="header-subtitle">Empowering communities through education and employment</div>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="window.location.href='login.html'">
+      <span style="font-size:1.3em;">&#x21B7;</span> Logout
+    </button>
+  </div>
+  <div class="cards-row">
+    <a href="program-manager.html" style="text-decoration:none;">
+      <div class="role-card">
+        <div class="role-icon role-program">&#128101;</div>
+        <div class="role-title">Program Manager</div>
+        <div class="role-desc">Manage programs, track progress,<br>and oversee operations</div>
+      </div>
+    </a>
+    <a href="trainer-portal.html" style="text-decoration:none;">
+      <div class="role-card">
+        <div class="role-icon role-trainer">&#127891;</div>
+        <div class="role-title">Trainer</div>
+        <div class="role-desc">Access training materials, schedule sessions,<br>and track student progress</div>
+      </div>
+    </a>
+    <a href="/placement-dashboard" style="text-decoration:none;">
+      <div class="role-card">
+        <div class="role-icon role-placement">&#128188;</div>
+        <div class="role-title">Placements</div>
+        <div class="role-desc">Job placement portal for operations<br>and students</div>
+      </div>
+    </a>
+    <a href="mobilizer-portal.html" style="text-decoration:none;">
+      <div class="role-card">
+        <div class="role-icon role-mobilizer">&#128100;</div>
+        <div class="role-title">Mobilizer</div>
+        <div class="role-desc">Community outreach and student mobilization</div>
+      </div>
+    </a>
+  </div>
+  <div class="about-section">
+    <div class="about-title">About Our NGO</div>
+    <div class="about-desc">
+      We are dedicated to empowering underprivileged communities through comprehensive skill development programs, quality training, and sustainable employment opportunities. Our integrated platform connects program managers, trainers, placement officers, and mobilizers to streamline operations and maximize impact.
+    </div>
+  </div>
+  </div>
+</body>
+</html>

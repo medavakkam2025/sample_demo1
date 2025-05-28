@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulk Student Upload</title>
+</head>
+<body>
+    <h2>Upload Student Excel File</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/upload_excel" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xlsx" required><br><br>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

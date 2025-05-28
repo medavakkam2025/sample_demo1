@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa 0%, #e3f2fd 100%);
+      min-height: 100vh;
+    }
+    .header {
+      padding: 2rem 0 1rem 0;
+      display: flex;
+      justify-content: center;
+    }
+    .back-btn {
+      background: #fff;
+      border: 2px solid #2986f5;
+      color: #2986f5;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+    .back-btn:hover {
+      background: #2986f5;
+      color: #fff;
+    }
+    .login-container {
+      background: #fff;
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(60, 120, 200, 0.12);
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .login-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.5rem;
+    }
+    .login-desc {
+      color: #607d8b;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      text-align: left;
+      color: #1a237e;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      font-weight: 500;
+    }
+    input[type="text"], input[type="date"] {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 2px solid #b6c7e3;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s;
+      background: #f7faff;
+      margin-bottom: 1.2rem;
+    }
+    input[type="text"]:focus, input[type="date"]:focus {
+      border: 2px solid #1976d2;
+      background: #fff;
+    }
+    .sign-in-btn {
+      margin-top: 0.7rem;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+      transition: background 0.2s;
+    }
+    .sign-in-btn:hover {
+      background: #2986f5;
+    }
+    .demo-credentials {
+      margin-top: 1.2rem;
+      background: #f1f7ff;
+      border-radius: 7px;
+      padding: 0.7rem;
+      font-size: 0.97rem;
+      color: #1a237e;
+      box-shadow: 0 1px 4px rgba(25, 118, 210, 0.04);
+      text-align: left;
+    }
+    .demo-credentials strong {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .demo-credentials span {
+      font-family: 'Fira Mono', monospace;
+      background: #e3f2fd;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      color: #1976d2;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="student-portal.html" class="back-btn">&#8592; Back</a>
+  </div>
+  <div class="login-container">
+    <div class="login-title">Student Login</div>
+    <div class="login-desc">Enter your mobile number and date of birth</div>
+    <form id="loginForm">
+      <label for="mobile">Mobile Number</label>
+      <input id="mobile" type="text" maxlength="10" pattern="\d{10}" placeholder="Enter 10-digit mobile number" required>
+      <label for="dob">Date of Birth</label>
+      <input id="dob" type="date" placeholder="dd-mm-yyyy" required>
+      <button class="sign-in-btn" type="submit">Sign In</button>
+    </form>
+    <div class="demo-credentials">
+      <strong>Demo credentials:</strong>
+      <div><b>Mobile:</b> <span>9876543210</span></div>
+      <div><b>DOB:</b> <span>1995-01-01</span></div>
+    </div>
+  </div>
+
+  <script>
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form from refreshing the page
+
+      // Demo credentials
+      const demoMobile = '9876543210';
+      const demoDob = '1995-01-01';
+
+      // Get input values
+      const mobile = document.getElementById('mobile').value;
+      const dob = document.getElementById('dob').value;
+
+      // Validate credentials
+      if (mobile === demoMobile && dob === demoDob) {
+        alert('Login successful!');
+        // Redirect to the student dashboard
+        window.location.href = 'student-dashboard.html';
+      } else {
+        alert('Invalid credentials. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

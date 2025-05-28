@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placement Dashboard</title>
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4faff;
+      height: 100vh;
+    }
+    .flex{
+        display: flex;
+    }
+    .mx-auto{
+        margin: 0 auto;
+    }
+    .sidebar {
+      width: 220px;
+      background: #2b94c8;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      color: #fff;
+      padding: 1rem;
+      box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+    }
+    .sidebar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .sidebar a:hover {
+      background: #0a3951;
+    }
+    .sidebar a.active {
+       background: #0a3951;
+    }
+    .main-content {
+      margin-left: 300px;
+      flex: 1;
+      display: flex;
+       justify-content: center;
+       justify-items: center;
+        align-items: center;
+        align-self: center;
+        align-content: center;
+        justify-self: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .iframe-container {
+      flex: 1;
+      border: none;
+      width: 100vh;
+      height: 200%;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Placement Dashboard</h2>
+    <a href="#" onclick="openForm('newEmployers')" class="active">
+        New Employers Adding</a>
+    <a href="#">SPOC Wise Employer View</a>
+    <a href="#">Batch Calender View</a>
+    <a href="/work-tracker">Work Tracker</a>
+    <a href="#">SOP - Placement Officer</a>
+    <a href="#" onclick="openForm('calendar')">Job Drive Calendar View</a>
+    <a href="/post-job">Post a Job</a>
+    <a href="/job-list">Current Openings</a>
+
+
+  </div>
+  <div class="main-content mx-auto">
+    <iframe id="formIframe" class="iframe-container" src=""></iframe>
+  </div>
+  <script>
+    function openForm(view) {
+      const iframe = document.getElementById('formIframe');
+      if (view === 'newEmployers') {
+        iframe.src = "https://forms.gle/PbYjSYNBKcGy9mpR7";
+      } else if (view === 'calendar') {
+        iframe.src = "https://calendar.google.com/calendar/embed?src=tnemployerconnect%40gmail.com&ctz=UTC";
+      }
+    }
+
+    // Load the default view (New Employers Adding)
+    // openForm('newEmployers');
+  </script>
+</body>
+</html>

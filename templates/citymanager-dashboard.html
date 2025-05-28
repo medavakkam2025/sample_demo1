@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>City Manager Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./Utilities.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4faff;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 220px;
+      background: #fff;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      box-shadow: 2px 0 12px rgba(100, 180, 255, 0.07);
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem 1rem 1.5rem;
+      z-index: 10;
+    }
+    .sidebar h2 {
+      color: #1976d2;
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+    .sidebar a, .sidebar .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      color: #1976d2;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .sidebar a.active, .sidebar .nav-btn.active {
+      background: linear-gradient(90deg, #b4cde7 0%, #e3f2fd 100%);
+      color: #fff;
+    }
+    .sidebar .logout {
+      margin-top: auto;
+      color: #1976d2;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .sidebar .logout:hover {
+      background: #b4cde7;
+      color: #fff;
+    }
+    .main-content {
+      margin-left: 240px;
+      padding: 2rem 2.5rem 2rem 2.5rem;
+      background: #f4faff;
+      min-height: 100vh;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .company-select {
+      font-size: 1rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      border: 1.5px solid #b4cde7;
+      background: #fff;
+      color: #1976d2;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+    .search-bar {
+      width: 320px;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      border: 1.5px solid #b4cde7;
+      font-size: 1rem;
+      background: #fff;
+      color: #1976d2;
+      margin-right: 1rem;
+    }
+    .summary-cards {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(100, 180, 255, 0.07);
+      padding: 1.5rem 2rem;
+      flex: 1 1 220px;
+      min-width: 220px;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      color: #1976d2;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .card-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1565c0;
+    }
+    .card-desc {
+      color: #5e92f3;
+      font-size: 0.97rem;
+      margin-top: 0.2rem;
+    }
+    .file-manager-section {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .file-manager, .chart-section {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(100, 180, 255, 0.07);
+      padding: 1.5rem 2rem;
+      flex: 2 1 420px;
+      min-width: 320px;
+      margin-bottom: 2rem;
+    }
+    .chart-section {
+      flex: 1 1 320px;
+      min-width: 320px;
+      text-align: center;
+    }
+    .file-manager-title {
+      color: #1976d2;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .file-manager-desc {
+      color: #5e92f3;
+      font-size: 0.97rem;
+      margin-bottom: 1rem;
+    }
+    .file-search {
+      width: 60%;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: 1.5px solid #b4cde7;
+      font-size: 1rem;
+      background: #e3f2fd;
+      color: #1976d2;
+      margin-bottom: 1rem;
+    }
+    .file-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .file-tab {
+      background: #e3f2fd;
+      color: #1976d2;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .file-tab.active {
+      background: linear-gradient(90deg, #1976d2 60%, #b4cde7 100%);
+      color: #fff;
+    }
+    .file-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+    .file-table th, .file-table td {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e3f2fd;
+      font-size: 1rem;
+    }
+    .file-table th {
+      color: #1976d2;
+      font-weight: 600;
+      background: #e3f2fd;
+    }
+    .file-table td {
+      color: #1565c0;
+    }
+    .download-btn {
+      background: linear-gradient(90deg, #1976d2 60%, #b4cde7 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 1rem;
+    }
+    .download-btn:hover {
+      background: #1565c0;
+    }
+    .chart-section .section-title {
+      margin-bottom: 1.5rem;
+      color: #1976d2;
+      font-weight: 600;
+    }
+    canvas {
+      max-width: 100%;
+      height: 320px !important;
+    }
+    @media (max-width: 900px) {
+      .main-content {
+        margin-left: 0;
+        padding: 1rem;
+      }
+      .sidebar {
+        display: none;
+      }
+      .file-manager-section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <a href="#" class="active">Overview</a>
+    <a href="#">Projects</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+    <button class="logout" onclick="window.location.href='login.html'">Logout</button>
+  </div>
+  <div class="main-content">
+    <div class="topbar">
+      <div>
+        <select class="company-select" id="companySelect">
+          <option value="IBM">IBM</option>
+          <option value="CISCO">CISCO</option>
+          <option value="RELIANCE">RELIANCE</option>
+          <option value="BARCLAYS">BARCLAYS</option>
+        </select>
+      </div>
+      <div>
+        <input type="text" class="search-bar" placeholder="Search...">
+      </div>
+    </div>
+    <div class="summary-cards">
+      <div class="card">
+        <div class="card-title">Total Projects</div>
+        <div class="card-value" id="totalProjects">0</div>
+        <div class="card-desc">All time total projects</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Active Projects</div>
+        <div class="card-value" id="activeProjects">0</div>
+        <div class="card-desc">Projects currently active</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Completed Projects</div>
+        <div class="card-value" id="completedProjects">0</div>
+        <div class="card-desc">Projects successfully completed</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Pending Projects</div>
+        <div class="card-value" id="pendingProjects">0</div>
+        <div class="card-desc">Projects awaiting action</div>
+      </div>
+    </div>
+    <div class="file-manager-section">
+      <div class="file-manager">
+        <div class="file-manager-title">File Manager</div>
+        <div class="file-manager-desc">Manage your project files and documents</div>
+        <input type="text" class="file-search" placeholder="Search files...">
+        <div class="file-tabs">
+          <button class="file-tab active">All Files</button>
+          <button class="file-tab">Images</button>
+          <button class="file-tab">Documents</button>
+        </div>
+        <table class="file-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Size</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="fileTableBody">
+            <!-- Filled by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="chart-section">
+        <div class="section-title">Project Status Analysis</div>
+        <canvas id="statusChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Sample data for each company
+    const companyData = {
+      IBM:      { total: 12, active: 8, completed: 3, pending: 1, chart: [8,3,1] },
+      CISCO:    { total: 20, active: 12, completed: 6, pending: 2, chart: [12,6,2] },
+      RELIANCE: { total: 15, active: 10, completed: 4, pending: 1, chart: [10,4,1] },
+      BARCLAYS: { total: 10, active: 5, completed: 4, pending: 1, chart: [5,4,1] }
+    };
+
+    // Fill overview and chart
+    function updateDashboard(company) {
+      const data = companyData[company];
+      document.getElementById('totalProjects').innerText = data.total;
+      document.getElementById('activeProjects').innerText = data.active;
+      document.getElementById('completedProjects').innerText = data.completed;
+      document.getElementById('pendingProjects').innerText = data.pending;
+      statusChart.data.datasets[0].data = data.chart;
+      statusChart.update();
+    }
+
+    // Chart.js - Project Status Pie Chart
+    const ctx = document.getElementById('statusChart').getContext('2d');
+    const statusChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Active', 'Completed', 'Pending'],
+        datasets: [{
+          data: companyData['IBM'].chart,
+          backgroundColor: ['#1976d2', '#43a047', '#ffa726'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+
+    // On company change
+    document.getElementById('companySelect').addEventListener('change', function() {
+      updateDashboard(this.value);
+    });
+
+    // Initial load
+    updateDashboard('IBM');
+  </script>
+</body>
+</html>

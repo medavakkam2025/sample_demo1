@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Program Manager Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 2rem 4vw 1rem 4vw;
+      gap: 1rem;
+    }
+    .back-btn {
+      background: #fff;
+      border: 2px solid #1976d2;
+      color: #1976d2;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #1976d2;
+      color: #fff;
+    }
+    .pm-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-left: 1.5rem;
+    }
+    .main-card {
+      background: #215fd6;
+      color: #fff;
+      border-radius: 16px;
+      margin: 2rem auto 2.5rem auto;
+      max-width: 90vw;
+      width: 1100px;
+      min-width: 320px;
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 2rem;
+      box-shadow: 0 4px 24px rgba(60, 120, 200, 0.10);
+    }
+    .main-card-icon {
+      font-size: 3.5rem;
+      margin-right: 2rem;
+    }
+    .main-card-content {
+      text-align: left;
+    }
+    .main-card-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .main-card-desc {
+      font-size: 1.1rem;
+      color: #e3eafc;
+    }
+    .sections-row {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .section-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      padding: 2rem 2rem 1.5rem 2rem;
+      width: 350px;
+      min-width: 260px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      border: 1.5px solid #e3eafc;
+      transition: box-shadow 0.15s, border 0.15s;
+    }
+    .section-card:hover {
+      box-shadow: 0 8px 32px rgba(60, 120, 200, 0.18);
+      border-color: #b6c7e3;
+    }
+    .section-icon {
+      font-size: 2.5rem;
+      color: #b6c7e3;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      color: #1a237e;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .section-desc {
+      color: #4a6fa1;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .section-note {
+      color: #888;
+      font-size: 0.98rem;
+      font-style: italic;
+    }
+    .role-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      padding: 2rem;
+      width: 350px;
+      min-width: 260px;
+      text-align: center;
+      margin: 0 auto 1.5rem auto;
+      border: 1.5px solid #e3eafc;
+      transition: box-shadow 0.15s, border 0.15s;
+      cursor: pointer;
+    }
+    .role-card:hover {
+      box-shadow: 0 8px 32px rgba(60, 120, 200, 0.18);
+      border-color: #b6c7e3;
+    }
+    .role-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .role-title {
+      color: #1a237e;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .role-desc {
+      color: #4a6fa1;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    @media (max-width: 1200px) {
+      .main-card { width: 98vw; }
+      .sections-row { flex-direction: column; align-items: center; gap: 1.5rem; }
+      .section-card { width: 95vw; }
+    }
+    @media (max-width: 600px) {
+      .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .main-card { flex-direction: column; align-items: flex-start; }
+      .main-card-icon { margin-right: 0; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="dashboard.html" class="back-btn">&#8592; Back to Home</a>
+    <span class="pm-title">Program Manager Portal</span>
+  </div>
+  <div class="main-card">
+    <span class="main-card-icon">&#x21B7;</span>
+    <div class="main-card-content">
+      <div class="main-card-title">Login to Access Portal</div>
+      <div class="main-card-desc">Secure access for program managers</div>
+    </div>
+  </div>
+  <div class="sections-row">
+    <div class="section-card">
+      <div class="section-icon">&#128200;</div>
+      <div class="section-title">Dashboard</div>
+      <div class="section-desc">Overview of all programs and key metrics</div>
+      <div class="section-note">Login required to access this section</div>
+    </div>
+    <div class="section-card">
+      <div class="section-icon">&#128196;</div>
+      <div class="section-title">Program Management</div>
+      <div class="section-desc">Create, edit, and monitor training programs</div>
+      <div class="section-note">Login required to access this section</div>
+    </div>
+    <div class="section-card">
+      <div class="section-icon">&#128221;</div>
+      <div class="section-title">Reports</div>
+      <div class="section-desc">Generate and view program reports</div>
+      <div class="section-note">Login required to access this section</div>
+    </div>
+    <div class="section-card">
+      <div class="section-icon">&#128101;</div>
+      <div class="section-title">Team Management</div>
+      <div class="section-desc">Manage program staff and assignments</div>
+      <div class="section-note">Login required to access this section</div>
+    </div>
+  </div>
+  <!-- Only the Program Manager card shown here -->
+  <a href="program-manager.html" style="text-decoration:none;">
+    <div class="role-card">
+      <div class="role-icon role-program">&#128101;</div>
+      <div class="role-title">Program Manager</div>
+      <div class="role-desc">Manage programs, track progress,<br>and oversee operations</div>
+    </div>
+  </a>
+</body>
+</html>

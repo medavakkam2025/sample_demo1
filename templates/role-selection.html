@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Role</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa 0%, #e3f2fd 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .role-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    .role-container h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1976d2;
+    }
+    .role-container button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .role-container button:hover {
+      background: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+  <div class="role-container">
+    <h1>Select Your Role</h1>
+    <button onclick="window.location.href='student-dashboard.html'">I am a Student</button>
+    <button onclick="window.location.href='dashboard.html'">I am an Employer</button>
+  </div>
+</body>
+</html>

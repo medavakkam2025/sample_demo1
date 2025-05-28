@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Work Tracker - Placement Officer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2b94c8;
+    }
+
+    form {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 1rem auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background: #2b94c8;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .log-card {
+      background: white;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .log-card p {
+      margin: 4px 0;
+    }
+
+    .log-card strong {
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📋 Placement Officer Work Tracker</h1>
+
+  <form method="POST">
+    <label for="officer">Officer Name</label>
+    <input type="text" id="officer" name="officer" required>
+
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="activity">Work Activity</label>
+    <textarea id="activity" name="activity" rows="3" required></textarea>
+
+    <label for="remarks">Remarks</label>
+    <textarea id="remarks" name="remarks" rows="2"></textarea>
+
+    <button type="submit">Add Entry</button>
+  </form>
+
+  <h1>📥 Download the Work Sheet</h1>
+<div style="text-align: center; margin-top: 1rem;">
+  <a href="{{ url_for('download_sheet') }}" style="background: #28a745; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none;">Download CSV</a>
+</div>
+
+
+</body>
+</html>

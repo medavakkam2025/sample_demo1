@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Placement Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa 0%, #e3f2fd 100%);
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 2rem 4vw 1rem 4vw;
+      gap: 1rem;
+    }
+    .back-btn {
+      background: #fff;
+      border: 2px solid #2986f5;
+      color: #2986f5;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #2986f5;
+      color: #fff;
+    }
+    .student-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-left: 1.5rem;
+    }
+    .main-card {
+      background: #2166e6;
+      color: #fff;
+      border-radius: 16px;
+      margin: 2rem auto 2.5rem auto;
+      max-width: 90vw;
+      width: 1100px;
+      min-width: 320px;
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 2rem;
+      box-shadow: 0 4px 24px rgba(60, 120, 200, 0.10);
+    }
+    .main-card-icon {
+      font-size: 3.5rem;
+      margin-right: 2rem;
+    }
+    .main-card-content {
+      text-align: left;
+    }
+    .main-card-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .main-card-desc {
+      font-size: 1.1rem;
+      color: #e3eafc;
+    }
+    .sections-row {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .section-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      padding: 2rem 2rem 1.5rem 2rem;
+      width: 350px;
+      min-width: 260px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      border: 1.5px solid #e3eafc;
+      transition: box-shadow 0.15s, border 0.15s;
+    }
+    .section-card:hover {
+      box-shadow: 0 8px 32px rgba(60, 120, 200, 0.18);
+      border-color: #b6c7e3;
+    }
+    .section-icon {
+      font-size: 2.5rem;
+      color: #b6c7e3;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      color: #1a237e;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .section-desc {
+      color: #4a6fa1;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .section-note {
+      color: #888;
+      font-size: 0.98rem;
+      font-style: italic;
+    }
+    @media (max-width: 1200px) {
+      .main-card { width: 98vw; }
+      .sections-row { flex-direction: column; align-items: center; gap: 1.5rem; }
+      .section-card { width: 95vw; }
+    }
+    @media (max-width: 600px) {
+      .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .main-card { flex-direction: column; align-items: flex-start; }
+      .main-card-icon { margin-right: 0; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="placement-portal.html" class="back-btn">&#8592; Back to Placements</a>
+    <span class="student-title">Student Placement Portal</span>
+  </div>
+  <a href="student-login.html" style="text-decoration:none;">
+    <div class="main-card">
+      <span class="main-card-icon">&#x21B7;</span>
+      <div class="main-card-content">
+        <div class="main-card-title">Student Login</div>
+        <div class="main-card-desc">Login with your mobile number and date of birth</div>
+      </div>
+    </div>
+  </a>
+  <div class="sections-row">
+    <div class="section-card">
+      <div class="section-icon">&#128188;</div>
+      <div class="section-title">Job Opportunities</div>
+      <div class="section-desc">Browse and apply for available job positions</div>
+      <div class="section-note">Login required to access</div>
+    </div>
+    <div class="section-card">
+      <div class="section-icon">&#128196;</div>
+      <div class="section-title">Resume Management</div>
+      <div class="section-desc">Upload and manage your resume for job applications</div>
+      <div class="section-note">Login required to access</div>
+    </div>
+    <div class="section-card">
+      <div class="section-icon">&#128200;</div>
+      <div class="section-title">Application Tracker</div>
+      <div class="section-desc">Track your job applications and placement status</div>
+      <div class="section-note">Login required to access</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobilizer Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #fff6e0 0%, #fff3cf 100%);
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 2rem 4vw 1rem 4vw;
+      gap: 1rem;
+    }
+    .back-btn {
+      background: #fff;
+      border: 2px solid #ff7a1a;
+      color: #ff7a1a;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #ff7a1a;
+      color: #fff;
+    }
+    .mobilizer-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-left: 1.5rem;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2vw;
+    }
+    .mobilizer-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      text-align: center;
+      border: 1.5px solid #e3eafc;
+      transition: box-shadow 0.15s, border 0.15s;
+    }
+    .mobilizer-card:hover {
+      box-shadow: 0 8px 32px rgba(60, 120, 200, 0.18);
+      border-color: #ffb366;
+    }
+    .mobilizer-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #ff7a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
+      font-size: 2.2rem;
+      color: #fff;
+    }
+    .mobilizer-card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+    }
+    .mobilizer-card-desc {
+      color: #4a6fa1;
+      font-size: 1rem;
+    }
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="dashboard.html" class="back-btn">&#8592; Back to Home</a>
+    <span class="mobilizer-title">Mobilizer Portal</span>
+  </div>
+  <div class="cards-grid">
+    <div class="mobilizer-card">
+      <div class="mobilizer-icon">&#128100;</div>
+      <div class="mobilizer-card-title">Community Outreach</div>
+      <div class="mobilizer-card-desc">Manage community engagement and outreach programs</div>
+    </div>
+    <div class="mobilizer-card">
+      <div class="mobilizer-icon">&#128205;</div>
+      <div class="mobilizer-card-title">Area Management</div>
+      <div class="mobilizer-card-desc">Track and manage assigned geographical areas</div>
+    </div>
+    <div class="mobilizer-card">
+      <div class="mobilizer-icon">&#128222;</div>
+      <div class="mobilizer-card-title">Contact Management</div>
+      <div class="mobilizer-card-desc">Maintain database of community contacts</div>
+    </div>
+    <div class="mobilizer-card">
+      <div class="mobilizer-icon">&#128196;</div>
+      <div class="mobilizer-card-title">Reports</div>
+      <div class="mobilizer-card-desc">Generate mobilization and enrollment reports</div>
+    </div>
+    <div class="mobilizer-card">
+      <div class="mobilizer-icon">&#128200;</div>
+      <div class="mobilizer-card-title">Analytics</div>
+      <div class="mobilizer-card-desc">Track mobilization metrics and success rates</div>
+    </div>
+    <div class="mobilizer-card">
+      <div class="mobilizer-icon">&#9881;</div>
+      <div class="mobilizer-card-title">Settings</div>
+      <div class="mobilizer-card-desc">Mobilizer profile and preferences</div>
+    </div>
+  </div>
+</body>
+</html>

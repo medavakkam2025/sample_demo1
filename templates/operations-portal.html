@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Operations Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Utilities.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #fbefff 0%, #f7eaff 100%);
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 2rem 4vw 1rem 4vw;
+      gap: 1rem;
+    }
+    .back-btn {
+      background: #fff;
+      border: 2px solid #a259f7;
+      color: #a259f7;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #a259f7;
+      color: #fff;
+    }
+    .operations-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-left: 1.5rem;
+    }
+    .stats-row {
+      display: flex;
+      gap: 2rem;
+      justify-content: flex-start;
+      margin: 2rem 0 2.5rem 0;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      padding: 1.5rem 2rem;
+      min-width: 260px;
+      width: 300px;
+      text-align: left;
+      border: 1.5px solid #e3eafc;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .stat-card .stat-icon {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      font-size: 1.7rem;
+      color: #a259f7;
+    }
+    .stat-label {
+      color: #444;
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+    }
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a237e;
+    }
+    .stat-trend {
+      color: #1abc60;
+      font-size: 1.3rem;
+      margin-left: 0.5rem;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      margin-right: 4vw;
+    }
+    .post-job-btn {
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s;
+    }
+    .post-job-btn:hover {
+      background: #a259f7;
+      color: #fff;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin: 2rem 0 1rem 0;
+    }
+    .jobs-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .job-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+      width: 500px;
+      min-width: 280px;
+      border: 1.5px solid #e3eafc;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .job-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.2rem;
+    }
+    .job-company {
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+    }
+    .job-desc {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+    }
+    .job-req-label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #222;
+    }
+    .job-reqs {
+      margin-bottom: 0.7rem;
+    }
+    .job-req-tag {
+      display: inline-block;
+      background: #f1f1f1;
+      color: #333;
+      border-radius: 6px;
+      padding: 0.2rem 0.7rem;
+      margin-right: 0.4rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+    .job-apps {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .job-salary {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      background: #f1f1f1;
+      color: #222;
+      border-radius: 6px;
+      padding: 0.2rem 0.7rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .view-apps-btn {
+      background: #fff;
+      border: 2px solid #a259f7;
+      color: #a259f7;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      float: right;
+    }
+    .view-apps-btn:hover {
+      background: #a259f7;
+      color: #fff;
+    }
+    /* Modal styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .modal-content label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .modal-content input, .modal-content textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .modal-content button {
+      background: #a259f7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .modal-content button:hover {
+      background: #7a3db8;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+    }
+    @media (max-width: 1200px) {
+      .jobs-row { flex-direction: column; align-items: center; gap: 1.5rem; }
+      .job-card { width: 95vw; }
+      .stats-row { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .jobs-row { gap: 1rem; }
+      .stat-card { width: 95vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="placement-portal.html" class="back-btn">&#8592; Back to Placements</a>
+    <span class="operations-title">Operations Portal</span>
+  </div>
+  <div class="top-bar">
+    <button class="post-job-btn" onclick="openModal()"><span>+</span> Post New Job</button>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Total Jobs</div>
+      <div class="stat-value">2</div>
+      <span class="stat-icon">&#128188;</span>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Applications</div>
+      <div class="stat-value">23</div>
+      <span class="stat-icon">&#128101;</span>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Avg Applications</div>
+      <div class="stat-value">12 <span class="stat-trend">&#8593;</span></div>
+      <span class="stat-icon">&#8593;</span>
+    </div>
+  </div>
+  <div class="section-title">Posted Jobs</div>
+  <div class="jobs-row">
+    <div class="job-card">
+      <div class="job-title">Frontend Developer</div>
+      <div class="job-company">Tech Solutions Inc &bull; Bangalore</div>
+      <div class="job-desc">Looking for a skilled frontend developer with React experience</div>
+      <div class="job-req-label">Requirements:</div>
+      <div class="job-reqs">
+        <span class="job-req-tag">React</span>
+        <span class="job-req-tag">JavaScript</span>
+        <span class="job-req-tag">HTML/CSS</span>
+        <span class="job-req-tag">Git</span>
+      </div>
+      <div class="job-apps">&#128101; 15 applications</div>
+      <span class="job-salary">&#8377;4.6 LPA</span>
+      <button class="view-apps-btn">View Applications</button>
+    </div>
+    <div class="job-card">
+      <div class="job-title">Digital Marketing Executive</div>
+      <div class="job-company">Marketing Pro &bull; Mumbai</div>
+      <div class="job-desc">Seeking a creative digital marketing professional</div>
+      <div class="job-req-label">Requirements:</div>
+      <div class="job-reqs">
+        <span class="job-req-tag">SEO</span>
+        <span class="job-req-tag">Social Media</span>
+        <span class="job-req-tag">Content Writing</span>
+        <span class="job-req-tag">Analytics</span>
+      </div>
+      <div class="job-apps">&#128101; 8 applications</div>
+      <span class="job-salary">&#8377;3.5 LPA</span>
+      <button class="view-apps-btn">View Applications</button>
+    </div>
+  </div>
+
+  <!-- Post New Job Modal -->
+  <div id="postJobModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Post a New Job</h2>
+      <form id="postJobForm">
+        <label for="jobTitle">Job Title</label>
+        <input type="text" id="jobTitle" placeholder="Enter job title" required>
+        
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" placeholder="Enter company name" required>
+        
+        <label for="location">Location</label>
+        <input type="text" id="location" placeholder="Enter job location" required>
+        
+        <label for="requirements">Requirements</label>
+        <textarea id="requirements" placeholder="Enter job requirements" required></textarea>
+        
+        <label for="salary">Salary</label>
+        <input type="text" id="salary" placeholder="Enter salary (e.g., ₹4.5 LPA)" required>
+        
+        <button type="submit">Post Job</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Open the modal
+    function openModal() {
+      document.getElementById('postJobModal').style.display = 'block';
+    }
+
+    // Close the modal
+    function closeModal() {
+      document.getElementById('postJobModal').style.display = 'none';
+    }
+
+    // Close the modal when clicking outside of it
+    window.onclick = function(event) {
+      if (event.target == document.getElementById('postJobModal')) {
+        closeModal();
+      }
+    };
+
+    // Handle form submission
+    document.getElementById('postJobForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form from refreshing the page
+
+      // Get form values
+      const jobTitle = document.getElementById('jobTitle').value;
+      const companyName = document.getElementById('companyName').value;
+      const location = document.getElementById('location').value;
+      const requirements = document.getElementById('requirements').value;
+      const salary = document.getElementById('salary').value;
+
+      // Create a new job card
+      const newJobCard = `
+        <div class="job-card">
+          <div class="job-title">${jobTitle}</div>
+          <div class="job-company">${companyName} &bull; ${location}</div>
+          <div class="job-desc">Looking for a skilled professional</div>
+          <div class="job-req-label">Requirements:</div>
+          <div class="job-reqs">
+            ${requirements.split(',').map(req => `<span class="job-req-tag">${req.trim()}</span>`).join('')}
+          </div>
+          <div class="job-apps">&#128101; 0 applications</div>
+          <span class="job-salary">${salary}</span>
+          <button class="view-apps-btn">View Applications</button>
+        </div>
+      `;
+
+      // Append the new job card to the jobs row
+      document.querySelector('.jobs-row').insertAdjacentHTML('beforeend', newJobCard);
+
+      // Close the modal and reset the form
+      closeModal();
+      document.getElementById('postJobForm').reset();
+    });
+  </script>
+</body>
+</html>
