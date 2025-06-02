@@ -11,6 +11,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      flex-direction: column;
     }
     .job-form {
       background: white;
@@ -46,9 +47,23 @@
       color: green;
       text-align: center;
     }
+    .back-button {
+      margin-bottom: 20px;
+      text-decoration: none;
+      background: #e74c3c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-align: center;
+      display: inline-block;
+    }
+    .back-button:hover {
+      background: #c0392b;
+    }
   </style>
 </head>
 <body>
+  <a href="/" class="back-button">Back</a>
   <form class="job-form" method="POST">
     <h2>Post a Job</h2>
 

@@ -18,6 +18,24 @@
       padding: 1rem 2rem;
       text-align: center;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      text-decoration: none;
+      background: #e74c3c;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .back-button:hover {
+      background: #c0392b;
     }
 
     h1 {
@@ -63,6 +81,21 @@
       color: #222;
     }
 
+    .apply-button {
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+      background: #3498db;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .apply-button:hover {
+      background: #2980b9;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 1.5rem;
@@ -78,6 +111,7 @@
 
   <header>
     <h1>🌟 Latest Job Openings</h1>
+    <a href="/" class="back-button">Back</a>
   </header>
 
   <div class="container">
@@ -88,6 +122,7 @@
         <p><strong>Location:</strong> {{ job.location }}</p>
         <p><strong>Salary:</strong> ₹{{ job.salary }}</p>
         <p><strong>Description:</strong><br>{{ job.description }}</p>
+        <a href="/apply/{{ job.id }}" class="apply-button">Apply</a>
       </div>
     {% else %}
       <p>No jobs found.</p>

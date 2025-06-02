@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trainer Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0ffe0 0%, #e0f7ef 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 2rem 4vw 1rem 4vw;
+      gap: 1rem;
+    }
+    .back-btn {
+      background: #fff;
+      border: 2px solid #1abc60;
+      color: #1abc60;
+      border-radius: 8px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #1abc60;
+      color: #fff;
+    }
+    .trainer-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-left: 1.5rem;
+    }
+    .cards-grid {
+      display: flex; /* Changed from grid to flex */
+      justify-content: center; /* Center the cards horizontally */
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2vw;
+      flex: 1;
+      flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }
+    .trainer-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(60, 120, 200, 0.08);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1.5px solid #e3eafc;
+      transition: box-shadow 0.15s, border 0.15s;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      width: 300px; /* Fixed width for consistent sizing */
+      min-height: 150px; /* Fixed height for consistency */
+    }
+    .trainer-card:hover {
+      box-shadow: 0 8px 32px rgba(60, 120, 200, 0.18);
+      border-color: #b6c7e3;
+    }
+    .trainer-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #0a4d74;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
+      font-size: 2.2rem;
+      color: #fff;
+    }
+    .trainer-card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+    }
+    .trainer-card-desc {
+      color: #4a6fa1;
+      font-size: 1rem;
+    }
+    .middle-section {
+      background-color: #0a4d74;
+      background-size: cover;
+      padding: 6rem 0;
+      text-align: center;
+      color: white;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .middle-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      position: relative;
+    }
+    .middle-section p {
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .header-bar {
+      background-color: #0a4d74;
+      color: white;
+      padding: 1rem 4vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .header-bar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background-color: rgba(255,255,255,0.2);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .header-bar a:hover {
+      background-color: rgba(255,255,255,0.4);
+      transform: scale(1.05);
+    }
+    .footer {
+      background-color: #0a4d74;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      width: 100%;
+      margin-top: auto;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      color: #f3f5f4;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 1000px) {
+      .cards-grid {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+        align-items: center;
+      }
+      .trainer-card {
+        width: 80%; /* Full width cards on mobile */
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="header-bar">
+    <a href="dashboard.html"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+  </div>
+
+  <div class="middle-section">
+    <h1>Trainer Portal</h1>
+    <p>Welcome to the Trainer Portal. Empower your trainees and track your progress with our comprehensive tools.</p>
+  </div>
+
+  <div class="cards-grid">
+    <a href="workupdate.html" class="trainer-card">
+      <div class="trainer-icon"><i class="fas fa-tasks"></i></div>
+      <div class="trainer-card-title">Daily Work Update</div>
+    </a>
+    <a href="postfeedback.html" class="trainer-card">
+      <div class="trainer-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+      <div class="trainer-card-title">Trainer & Training Feedback</div>
+    </a>
+    <a href="curriculum.html" class="trainer-card">
+      <div class="trainer-icon"><i class="fas fa-book"></i></div>
+      <div class="trainer-card-title">Training Documents</div>
+    </a>
+  </div>
+  
+  <div class="footer">
+  </div>
+</body>
+</html>

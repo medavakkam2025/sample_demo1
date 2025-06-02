@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daily Work Update</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #e0ffe0);
+      padding: 6rem 1rem 4rem;
+      margin: 0;
+      min-height: 100vh;
+      overflow-y: scroll;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #11048d;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header-left img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .header-left h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .header button {
+      background-color: white;
+      color: #11048d;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .header button:hover {
+      background-color: #e0f2f1;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #11048d;
+      color: white;
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      z-index: 1000;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #00796b;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+  /* Prevent page shaking when scrollbars appear/disappear */
+ 
+
+
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1.2rem;
+      border: 2px solid #cfd8dc;
+      border-radius: 8px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      font-size: 1rem;
+    }
+
+    input:focus, select:focus {
+      border-color: #200079;
+      box-shadow: 0 0 8px rgba(0, 121, 107, 0.3);
+      outline: none;
+    }
+
+    button[type="submit"] {
+      background: #000c79;
+      color: #ffffff;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      width: 100%;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #004d40;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .header, .footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+      body {
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+        overflow-y: scroll;
+
+      }
+      .checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+  }
+  .checkbox-text {
+    margin-right: 5px;
+    font-weight: 600;
+    user-select: none;
+    cursor: pointer;
+  }
+  .rmt-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <img src="/website 2/magic-bus-logo.png" alt="Magic Bus Logo" />
+      <h1>TRAINER'S PORTAL</h1>
+    </div>
+    <button onclick="downloadForm()">Download</button>
+  </div>
+<head>
+  ...
+
+</head>
+
+  <center><h1> Daily Work Report</h1></center>
+
+  <form id="dailyForm">
+    <h2>Enter Daily Work Details</h2>
+
+    <label>College Name: <input type="text" name="college" required></label>
+
+    <label>Project Name:
+      <select name="project" required>
+        <option value="">Select Project</option>
+        <option>Barclays</option>
+        <option>Infosys</option>
+        <option>IBM</option>
+        <option>CISCO</option>
+        <option>Reliance</option>
+        <option>State Street</option>
+      </select>
+    </label>
+
+    <label>Project Manager Name:
+      <select name="manager" required>
+        <option value="">Select Manager</option>
+        <option>Bagath</option>
+        <!-- more options... -->
+        <option>Franklin</option>
+      </select>
+    </label>
+
+    <label>Batch ID: <input type="text" name="batchID" required></label>
+    <label>Batch Size: <input type="number" name="batchSize" required></label>
+    <label>Batch Attendance Overall: <input type="number" name="attendanceOverall" required></label>
+
+    <label>No of Days:
+      <select name="noOfDays" required>
+        <option value="">Select Day</option>
+        <option>Day 1</option>
+        <option>Day 2</option>
+        <!-- more days... -->
+        <option>Day 15</option>
+      </select>
+    </label>
+
+    <label>Start Date: <input type="date" name="startDate" required></label>
+    <label>End Date: <input type="date" name="endDate" required></label>
+
+    <label>Trainer Name:
+      <select name="trainer" required>
+        <option value="">Select Trainer</option>
+        <option>Yaazhini - Training Officer</option>
+    <option>Sujitha - Training Officer</option>
+    <option>Nisha Karunanithi - Training Officer</option>
+    <option>Chandru - Training Officer</option>
+    <option>Anand - Technical Youth Trainer</option>
+    <option>Josephine - Training Officer</option>
+    <option>Reshma - Training Officer</option>
+    <option>Sowmiya - Technical Youth Trainer</option>
+    <option>SanthoshKumar - Technical Youth Trainer</option>
+    <option>Tamizharasan - Technical Youth Trainer</option>
+    <option>Benazir Fathima H - Technical Youth Trainer</option>
+    <option>Hemavathy - Technical Youth Trainer</option>
+    <option>Jeyachitra S - Technical Youth Trainer</option>
+    <option>Parveen - Training Officer</option>
+    <option>Sugadev S - Training Officer</option>
+    <option>Mathivathani Ravichandran - Training Officer</option>
+    <option>Swati Packirirsamy Pillai - Training Officer</option>
+    <option>Santhanam - Technical Youth Trainer</option>
+    <option>Vignesh K - Training Officer</option>
+    <option>Yokesh M - Training Officer</option>
+    <option>Logeshkumar Stalin - Training Officer</option>
+    <option>Sneha Manikandan - Training Officer</option>
+    <option>Junsia Selvaraj - Training Officer</option>
+    <option>Naveenraj - Training Officer</option>
+    <option>Maruthu Pandi M - Training Officer</option>
+    <option>Babu V - Training Officer</option>
+    <option>Aravinthan - Livelihood Officer - Mobilization and Training</option>
+    <option>Gershon Praveen Raj G - Livelihood Officer - Mobilization and Training</option>
+    <option>E Nesamani Rahel Jenifer - Livelihood Officer - Mobilization and Training</option>
+    <option>Shanmuga Sundharam - Livelihood Officer - Mobilization and Training</option>
+    <option>Jenitha Jude J - Livelihood Officer - Mobilization and Training</option>
+    <option>Seena Thomas - Livelihood Officer - Mobilization and Training</option>
+    <option>Kareemunisha K - Livelihood Officer - Mobilization and Training</option>
+    <option>Naveen Raj - Livelihood Officer - Mobilization and Training</option>
+    <option>Yuvashree. V - Livelihood Officer - Mobilization and Training</option>
+    <option>Emmanuel - Livelihood Officer - Mobilization and Training</option>
+    <option>M Arunkumar - Livelihood Officer - Mobilization and Training</option>
+    <option>Santhosh M G - Livelihood Officer - Mobilization and Training</option>
+    <option>Amala Kency A - Livelihood Officer - Mobilization and Training</option>
+    <option>Sowndari Srinivasan - Livelihood Officer - Mobilization and Training</option>
+    <option>Aarthi G - Livelihood Officer - Mobilization and Training</option>
+    <option>Yesudass - Livelihood Officer - Mobilization and Training</option>
+    <option>Hari Narayanan - Livelihood Officer - Mobilization and Training</option>
+    <option>Deepika A - Livelihood Officer - Mobilization and Training</option>
+    <option>Sutharsan S - Livelihood Officer - Mobilization and Training</option>
+    <option>Mathumathi MP - Livelihood Officer - Mobilization and Training</option>
+    <option>Keerthilakshmi L - Livelihood Officer - Mobilization and Training</option>
+    <option>Ravichandran K - Livelihood Officer - Mobilization and Training</option>
+    <option>Balamurugan R - Livelihood Officer - Mobilization and Training</option>
+    <option>Sanjai - Technical Trainer</option>
+    <option>Naveen - Technical Trainer</option>
+    <option>Bavan - Technical Trainer</option>
+    <option>Aparna - Technical Trainer</option>
+    <option>Wasiulla - Technical Trainer</option>
+    <option>Nandhini - Technical Trainer</option>
+    <option>Rajiv - Technical Trainer</option>
+    <option>Mahalakshmi - Technical Trainer</option>
+      </select>
+    </label>
+
+    <label>Curriculum:
+      <select name="curriculum" id="curriculum" required onchange="toggleSessionDropdown()">
+        <option value="">Select Curriculum</option>
+        <option value="LS">LS</option>
+        <option value="AI">AI</option>
+      </select>
+    </label>
+
+    <label id="aiLabel" style="display:none;">AI Session:
+      <select name="aiSession" id="aiSession" required>
+        <option value="">Select AI Session</option>
+        <option>Introduction to AI Fundamentals</option>
+    <option>AI & ML Core Concepts</option>
+    <option>What Is Generative AI?</option>
+    <option>The Evolution of Thoughtful Online Search</option>
+    <option>Build Your Own Chatbot - Conversational AI, How Chatbots Work, Creating a Dialog Skill for Your Chatbot</option>
+    <option>Streamlining Your Work with Microsoft Copilot 1</option>
+    <option>Learning Microsoft 365 Copilot & Ethics in the Age of Generative AI</option>
+    <option>Introduction to Prompt Engineering & Text Generation</option>
+    <option>Introduction to ChatGPT using ChatGPT - Coding Prompt</option>
+    <option>Suggestions Prompt, Content Prompt, Report Prompt</option>
+    <option>AI-Generated Images & Advanced Concepts</option>
+    <option>Script Writing and Feedback Generation</option>
+    <option>ChatGPT for Excel - Understanding Excel, Types of Functions in Excel, Generating Excel Functions using ChatGPT</option>
+    <option>Pivot Tables & Pivot Chat</option>
+    <option>Preparation of Financial Statements using ChatGPT & Dashboard Analysis using ChatGPT</option>
+    <option>Adding Intents from the Content Catalog, Testing Intents in the Try It Out Panel & Importing and Exporting Intents via CSV Files</option>
+    <option>Microsoft PowerPoint Using AI - Types of Presentation & Creating Content</option>
+    <option>Importing Content to PowerPoint</option>
+    <option>Designing Slides for Our Presentation & Advanced Prompting</option>
+      </select>
+    </label>
+
+    <label id="lsLabel" style="display:none;">LS Session:
+      <select name="lsSession" id="lsSession" required>
+        <option value="">Select LS Session</option>
+        <option>Introduction MB</option>
+    <option>Setting training expectation</option>
+    <option>Understanding self</option>
+    <option>Growth mindset</option>
+    <option>Adaptability and Language</option>
+    <option>Problem Solving</option>
+    <option>Communication & interpersonal Skill & Decision Making & Language</option>
+    <option>Time Management stress Management Language proficiency</option>
+    <option>Logical reasoning, Language proficiency</option>
+    <option>Sector overview, Language proficiency</option>
+    <option>Numerical reasoning, Language proficiency</option>
+    <option>Managing personal finance</option>
+    <option>Safeguarding work place rights</option>
+    <option>Telephone email.etiquette</option>
+    <option>Interview Preparation before, Language proficiency</option>
+    <option>Interview Preparation during and after</option>
+      </select>
+    </label>
+
+    <label>Duration:
+      <select name="duration" required>
+        <option value="">Select Duration</option>
+        <option>1 Hour</option>
+        <option>2 Hours</option>
+        <option>3+ Hours</option>
+      </select>
+    </label>
+
+    <label>Time Taken for the Day Overall: <input type="text" name="timeOverall" required></label>
+    <label>No of YPs Present: <input type="number" name="ypsPresent" required></label>
+    <label>No of YPs Absent: <input type="number" name="ypsAbsent" required></label>
+    <label>RMT Visit:</label><br>
+<div class="checkbox-container" style="display: flex; gap: 20px;">
+  <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+    <input type="checkbox" id="rmtYes" name="rmtVisit" value="Yes" class="rmt-checkbox" required>
+    <span>Yes</span>
+  </label>      
+  <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+    <input type="checkbox" id="rmtNo" name="rmtVisit" value="No" class="rmt-checkbox">
+    <span>No</span>
+  </label>
+</div>
+
+
+
+
+    <button type="submit">Submit Report</button>
+  </form>
+
+  <div class="footer">
+    &copy; 2025 Magic Bus India Foundation. All rights reserved.
+  </div>
+
+  <script>
+    function downloadForm() {
+      alert("Download feature coming soon!");
+    }
+
+    function toggleSessionDropdown() {
+      const curriculum = document.getElementById("curriculum").value;
+      const aiLabel = document.getElementById("aiLabel");
+      const lsLabel = document.getElementById("lsLabel");
+      const aiSession = document.getElementById("aiSession");
+      const lsSession = document.getElementById("lsSession");
+
+      if (curriculum === "AI") {
+        aiLabel.style.display = "block";
+        aiSession.required = true;
+        lsLabel.style.display = "none";
+        lsSession.required = false;
+      } else if (curriculum === "LS") {
+        lsLabel.style.display = "block";
+        lsSession.required = true;
+        aiLabel.style.display = "none";
+        aiSession.required = false;
+      } else {
+        aiLabel.style.display = "none";
+        lsLabel.style.display = "none";
+        aiSession.required = false;
+        lsSession.required = false;
+      }
+    }
+  </script>
+</body>
+</html>
